@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Fire_baseChat</string>
+    <string name="txt_login_btn">로그인</string>
+    <string name="txt_register_btn">회원가입</string>
+</resources>

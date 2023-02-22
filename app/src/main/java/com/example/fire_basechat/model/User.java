@@ -7,9 +7,8 @@ public class User {
 
     private  String message;
 
-
-    public User(String strEmail, String message) {
-        this.emailId = strEmail;
+public User(String emailId, String message) {
+        this.emailId = emailId;
         this.message = message;
     }
 

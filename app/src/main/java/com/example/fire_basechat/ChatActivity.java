@@ -134,9 +134,9 @@ public class ChatActivity extends AppCompatActivity {
     }
 
 
-    private void addMessage(DataSnapshot dataSnapshot, ArrayAdapter<String> adapter) {
+   private void addMessage(DataSnapshot dataSnapshot, ArrayAdapter<String> adapter) {
         User user = dataSnapshot.getValue(User.class);
-        adapter.add(user.getMessage() + " : " + user.getMessage());
+        adapter.add(user.getEmailId() + " : " + user.getMessage());
     }
 
 

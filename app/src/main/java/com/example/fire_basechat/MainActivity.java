@@ -1,5 +1,7 @@
 package com.example.fire_basechat;
 
+import static java.sql.DriverManager.println;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         String email = getIntent().getStringExtra("email");
 
+
         txtEmail.setText(email+"님 안녕하세요");
 
 
@@ -64,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
         userNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if ( userChat.getText().toString().equals(""))
+                if (txtEmail.getText().toString().equals("") || userChat.getText().toString().equals(""))
                     return;
 
                 Intent intent = new Intent(MainActivity.this, ChatActivity.class);
                 intent.putExtra("chatName", userChat.getText().toString());
-                intent.putExtra("userName", txtEmail.getText().toString());
+                intent.putExtra("email",email);
                 startActivity(intent);
             }
         });
@@ -114,3 +117,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+

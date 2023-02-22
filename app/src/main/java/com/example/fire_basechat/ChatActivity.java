@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -34,7 +35,7 @@ public class ChatActivity extends AppCompatActivity {
     ListView chatView;
     EditText editChat;
 
-    public String strEmail;
+    public String emailId;
 
     ArrayAdapter<String> adapter;
 
@@ -53,7 +54,7 @@ public class ChatActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
 
-        strEmail = getIntent().getStringExtra("email");
+
         btnLogout = findViewById(R.id.btnLogout);
 
         editChat = findViewById(R.id.editChat);
@@ -63,6 +64,8 @@ public class ChatActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         CHAT_NAME = intent.getStringExtra("chatName");
+        emailId = intent.getStringExtra("email");
+        Log.i("emailId", emailId);
 
 
 
@@ -75,7 +78,7 @@ public class ChatActivity extends AppCompatActivity {
                 if (editChat.getText().toString().equals(""))
                     return;
 
-                User user = new User(strEmail, editChat.getText().toString());
+                User user = new User(emailId, editChat.getText().toString());
                 DatabaseRef.child("chat").child(CHAT_NAME).push().setValue(user); // 데이터 푸쉬
                 editChat.setText(""); //입력창 초기화
             }
@@ -134,7 +137,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
 
-   private void addMessage(DataSnapshot dataSnapshot, ArrayAdapter<String> adapter) {
+    private void addMessage(DataSnapshot dataSnapshot, ArrayAdapter<String> adapter) {
         User user = dataSnapshot.getValue(User.class);
         adapter.add(user.getEmailId() + " : " + user.getMessage());
     }

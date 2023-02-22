@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Fire_baseChat"
         tools:targetApi="31">
+
         <activity
 
             android:name=".LoginActivity"
@@ -20,6 +21,10 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".ChatActivity"
+            android:exported="false"/>
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -27,6 +32,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
     </application>
 

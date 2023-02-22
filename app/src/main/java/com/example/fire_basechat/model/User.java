@@ -5,6 +5,22 @@ public class User {
     private String emailId;
     private  String password;
 
+    private  String message;
+
+
+    public User(String strEmail, String message) {
+        this.emailId = strEmail;
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     // 계정 고유 토큰정보
     private String idToken;
 
